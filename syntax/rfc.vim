@@ -20,6 +20,7 @@ syn match rfcRFC	/\v.@<=%(RFC|STD)\s+[0-9]+|ANSI\s+[0-9A-Z-.]+/ containedin=ALL
 syn match rfcReference	/^\@<!\[\w\+\]/
 syn match rfcComment	/^\S.*\ze\n/
 syn match rfcDots	/\v\.\.+\ze\d+$/ contained
+syn match rfcSecRef	/\vSection \d(\.\d)*/
 syn match rfcContents	/^\v\s+(([A-Z]\.)?([0-9]+\.?)+|Appendix|Full Copyright Statement).*(\n.*)?(\s|\.)\d+$/ contains=rfcDots
 syn keyword rfcNote	NOTE note: Note: NOTE: Notes Notes:
 " Highlight [sic] here so it won't be highlighted as rfcReference
@@ -34,6 +35,7 @@ hi link rfcComment	Comment
 hi link rfcReference	Number
 hi link rfcDots		Comment
 hi link rfcContents	Tag
+hi link rfcSecRef	Tag
 hi link rfcKeyword	Keyword
 
 let b:current_syntax = "rfc"

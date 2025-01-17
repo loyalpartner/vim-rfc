@@ -43,6 +43,11 @@ function! s:rfcTag()
     let l = '^\c\V' . lm
     call add(b:backposes, getpos('.'))
     call search(l, 'Ws')
+  elseif syn == 'rfcSecRef'
+    let l = s:get_pattern_at_cursor('\vSection \d(\.\d)*')
+    let l = substitute(l, '\v^Section\s+', '', '')
+    let l = '\v^' . l
+    call search(l, 'Ws')
   elseif syn == 'rfcReference'
     let l = s:get_pattern_at_cursor('\[\w\+\]')
     if l == ''

@@ -121,7 +121,7 @@ def create_cache_file():
 
   # 3.8 introduced the any-ns syntax: '{*}tag',
   # but let's go the old way for compatability.
-  ns = {'ns': 'http://www.rfc-editor.org/rfc-index'}
+  ns = {'ns': 'https://www.rfc-editor.org/rfc-index'}
 
   with open(os.path.expanduser(cache_dir + '/vim-rfc.txt'), 'w') as f:
     for entry in root.findall('ns:rfc-entry', ns):
